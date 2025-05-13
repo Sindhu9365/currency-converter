@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h2>Simple Currency Converter</h2>
+    <form method="POST">
+        <input type="number" step="0.01" name="amount" required placeholder="Amount"><br><br>
+        From:
+        <select name="from_currency">
+            {% for currency in rates %}
+                <option value="{{ currency }}">{{ currency }}</option>
+            {% endfor %}
+        </select>
+        To:
+        <select name="to_currency">
+            {% for currency in rates %}
+                <option value="{{ currency }}">{{ currency }}</option>
+            {% endfor %}
+        </select><br><br>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+        <h3>{{ result }}</h3>
+    {% endif %}
+</body>
+</html>
